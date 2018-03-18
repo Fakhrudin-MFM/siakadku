@@ -1,0 +1,66 @@
+<section class="content-header">
+  <h1>Data User</h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>        
+    <li class="active">Dashboard</li>
+  </ol>
+</section>
+<!-- Main content-->
+<section class="content">
+  <!-- Your Page Content Here-->
+  <!-- /.row-->
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Data User</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>Id</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>User Group</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            {{#each user}}
+            <tr>
+              <td>{{id}}</td>
+              <td>{{username}}</td>
+              <td>{{email}}</td>
+              <td>{{idUserGroup}}</td>
+              <td>
+                <a href="/users/detail/{{id}}" class='btn btn-info fa fa-eye'></a>              
+                <form style="display:inline" action="users/delete/{{id}}?_method=DELETE" method="POST">
+                  <button type="submit"class="btn btn-danger fa fa-trash"> </button>
+                </form>
+              </td>
+            </tr>
+            {{/each}} 
+            </tbody>
+            <tfoot>
+            <tr>
+              <th>Id</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>User Group</th>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box-->
+    </div>
+  </div>
+</section>

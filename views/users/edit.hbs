@@ -1,0 +1,62 @@
+<section class="content-header">
+  <h1>Add User</h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>        
+    <li class="active">Dashboard</li>
+  </ol>
+</section>
+<!-- Main content-->
+<section class="content">
+  <!-- Your Page Content Here-->
+  <!-- /.row-->
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Add User</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            {{#with user}}
+           <form class="form-horizontal" action="/users/edit/{{username}}?_method=PUT" method="POST">
+              <div class="form-group">
+                <label for="username" class="col-sm-3 control-label">Username</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" name="username" value="{{username}}">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-7">
+                  <input type="email" class="form-control" name="email" value="{{email}}">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password" class="col-sm-3 control-label">Password</label>
+                <div class="col-sm-7">
+                  <input type="password" class="form-control" name="password" value="{{password}}">
+                </div>
+              </div>
+            {{/with}}
+              <div class="form-group">
+                <label for="idUserGroup" class="col-sm-3 control-label">User Group</label>
+                <div class="col-sm-7">
+                  <select class="form-control" id="" name="idUserGroup">
+                    {{#each ug}}
+                      <option value="{{id}}">{{hak_akses}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+              </div>
+              
+              <input type="submit" name="adduser" class="btn btn-primary pull-right" >
+            </form>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box-->
+    </div>
+  </div>
+</section>
