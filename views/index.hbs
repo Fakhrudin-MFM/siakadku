@@ -62,7 +62,7 @@
         </div>
         <div class="box-body">
           <div class="chart">
-            <canvas id="lineChart" style="height:250px"></canvas>
+            <canvas id="mhsprodi" style="height:450px"></canvas>
           </div>
         </div>
         <!-- /.box-body -->
@@ -206,6 +206,174 @@ var myDoughnutChart = new Chart(donut, {
         title: {
           display: true,
           text: 'Jumlah Dosen'
+        },
+        animation: {
+          animateScale: true,
+          animateRotate: true
+        }
+      }
+});
+
+</script>
+
+
+
+<script >
+//bar mahasiswa
+var mhs = [{{#each mahasiswa}}{{hasil}},{{/each}}];
+var tahun = [{{#each mahasiswa}}'{{tahun_masuk}}',{{/each}}];
+var nilaimaks = Math.max({{#each mahasiswa}}{{hasil}},{{/each}});
+
+var ctx = document.getElementById("barChart");
+var pengaturan = {
+  scales: {
+    xAxes: [{
+      time: {
+        unit: 'month'
+      },
+      gridLines: {
+        display: false
+      },
+      ticks: {
+        maxTicksLimit: 6
+      }
+    }],
+    yAxes: [{
+      ticks: {
+        min: 0,
+        max: nilaimaks,
+        maxTicksLimit: 5
+      },
+      gridLines: {
+        display: true
+      }
+    }],
+  },
+  legend: {
+    display: true
+  }
+};
+
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: tahun,
+        datasets: [{
+            label: 'Mahasiswa',
+            backgroundColor:'rgba(54, 162, 235, 0.2)',
+            data: mhs,  
+            //data: [12, 19, 3, 5, 2, 3, 4],  
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: pengaturan
+});
+
+</script>
+
+
+<script >
+//bar mahasiswa
+var mhsl = [{{#each mhsl}}{{hasil}},{{/each}}];
+var prodi = [{{#each mhsl}}'{{nama_prodi}}',{{/each}}];
+var nilaimaks = Math.max({{#each mhsl}}{{hasil}},{{/each}});
+
+var ctx = document.getElementById("mhsprodi");
+var pengaturanmhs = {
+  scales: {
+    xAxes: [{
+      time: {
+        unit: 'month'
+      },
+      gridLines: {
+        display: false
+      },
+      ticks: {
+        maxTicksLimit: 6
+      },
+
+
+    }],
+    yAxes: [{
+      ticks: {
+        min: 0,
+        max: nilaimaks,
+        maxTicksLimit: 5,
+
+      },
+      gridLines: {
+        display: true
+      }
+    }],
+  },
+  legend: {
+    display: true,
+//    position:'right'
+  }
+};
+
+var myChart = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: {
+        labels: prodi,
+        datasets: [{
+            label: 'Mahasiswa',
+            backgroundColor:'rgba(54, 162, 235, 0.2)',
+            data: mhsl,  
+            //data: [12, 19, 3, 5, 2, 3, 4],  
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: pengaturanmhs
+});
+
+</script>
+
+
+
+<script>
+//donut dosen
+var mhs = [{{#each mhsJalur}}{{hasil}},{{/each}}];
+var jurusan = [{{#each mhsJalur}}'{{nama_jalurmasuk}}',{{/each}}];
+
+var donut = document.getElementById("areaChart");
+
+var myDoughnutChart = new Chart(donut, {
+    type: 'pie',
+    data: {
+        labels: jurusan,
+        datasets: [{
+//            label: 'Data Dosen',
+            backgroundColor: [
+              "#3c8dbc",
+              "#00c0ef",
+              "#00a65a",
+              "#f39c12",
+              "#f56954",
+              "#d2d6de",
+              "#001F3F",
+              "#39CCCC",
+              "#605ca8",
+              "#ff851b",
+              "#D81B60",
+              "#111111"
+            ],
+            data: mhs,  
+            //data: [12, 19, 3, 5, 2, 3, 4],  
+            //borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        legend: {
+          position: 'right',
+        },
+        title: {
+          display: true,
+          text: 'Mahasiswa Per Jalur Masuk'
         },
         animation: {
           animateScale: true,

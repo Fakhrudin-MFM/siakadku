@@ -58,11 +58,22 @@ router.get('/', function(req, res, next) {
 			result_dosen = dosen;	    
 		});
 
+		var mhsLakiProdi = "SELECT COUNT(*) as hasil ,sex, nama_prodi FROM `Mahasiswas` INNER JOIN ProgramStudis ON Mahasiswas.idProgramStudi = ProgramStudis.id  group by idProgramStudi";
+		con.query(mhsLakiProdi, function(err, mhslaki, fields){
+			mhslakii = mhslaki;
+		});
+		var queryMhsJalur = "SELECT COUNT(*) as hasil , nama_jalurmasuk FROM `Mahasiswas` INNER JOIN JalurMasuks ON Mahasiswas.idJalurMasuk = JalurMasuks.id  group by idJalurMasuk";
+		con.query(queryMhsJalur, function(err, mhsJalur, fields){
+			result_mhsJalur = mhsJalur;
+			console.log(result_mhsJalur);
+		});
 		var mahasiswa = "SELECT COUNT(*) as hasil, tahun_masuk FROM Mahasiswas GROUP BY tahun_masuk";
 		con.query(mahasiswa, function (err, mhs, fields) {
 			res.render('index', {
 				mahasiswa:mhs,
-				dosen:result_dosen
+				dosen:result_dosen,
+				mhsJalur : result_mhsJalur,
+				mhsl:mhslakii,
 			})
 		});
 	})
