@@ -6,6 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
+var passport = require('passport');
+var session = require('express-session');
+var env = require('dotenv').load();
+var app = express();
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -16,10 +20,9 @@ var jurusan = require('./routes/jurusan');
 var jalurmasuk = require('./routes/jalurmasuk');
 var matakuliah = require('./routes/matakuliah');
 var nilai = require('./routes/nilai');
+//var auth = require('./routes/auth');
 
 
-
-var app = express();
 
 // Register hbs Partials
 var hbs = require('hbs');
@@ -37,6 +40,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
+// For Passport
+ 
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(passport.initialize()); 
+app.use(passport.session()); // persistent login sessions
+
 
 app.use('/', index);
 app.use('/users', users);
@@ -47,7 +56,12 @@ app.use('/jurusan', jurusan);
 app.use('/jalurmasuk', jalurmasuk);
 app.use('/matakuliah', matakuliah);
 app.use('/nilai', nilai);
+//app.use('/', auth);
 
+var models = require("./models");
+require('./config/passport/passport.js')(passport, models.user);
+
+var authRoute = require('./routes/auth')(app, passport);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'idPendidikan',
       onDelete : 'CASCADE',
     });
-    Dosen.belongsTo(models.User,{
+    Dosen.belongsTo(models.user,{
       foreignKey: 'idUser',
       onDelete : 'CASCADE',
     });
