@@ -14,10 +14,19 @@ var con = mysql.createConnection({
   database: "database_development"
 });
 
-
+var authController = require('../controller/authcontroller');
+function isLoggedIn(req, res, next) {
+ 
+    if (req.isAuthenticated())
+     
+        return next();
+         
+    res.redirect('/signin');
+ 
+} 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', isLoggedIn, function(req, res, next) {
 /*	Dosen.findAll({
 			include:{
 				model:ProgramStudi,

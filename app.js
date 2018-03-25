@@ -61,7 +61,10 @@ app.use('/nilai', nilai);
 var models = require("./models");
 require('./config/passport/passport.js')(passport, models.user);
 
-var authRoute = require('./routes/auth')(app, passport);
+var authRoute = require('./routes/auth');
+
+app.use('/', authRoute);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
