@@ -13,7 +13,12 @@
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">Data Mahasiswa</h3>
+          <h3 class="box-title">Data Dosen</h3>
+          <div class="box-tools ">
+            <a href="/jalurmasuk/add" class="btn btn-sm btn-success">
+              Tambah Jalur Masuk
+            </a>
+          </div>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -34,11 +39,9 @@
               <td>{{id}}</td>
               <td>{{nama_jalurmasuk}}</td>
               <td>
-                <a href="/jalurmasuk/edit/{{id}}" class='btn btn-info'>Edit</a>
-              </td>
-              <td>
-                <form action="/jalurmasuk/delete/{{id}}?_method=DELETE" method="POST">
-                  <input type="submit" class="btn btn-danger" value="Delete">
+                <a href="/jalurmasuk/edit/{{id}}" class='btn btn-info'><i class="fa fa-pencil"></i></a>
+                <form style="display:inline-block" action="/jalurmasuk/delete/{{id}}?_method=DELETE" method="POST">
+                  <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                 </form>
               </td>
             </tr>

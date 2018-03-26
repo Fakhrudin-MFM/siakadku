@@ -13,7 +13,12 @@
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">Data Mahasiswa</h3>
+          <h3 class="box-title">Data Dosen</h3>
+          <div class="box-tools ">
+            <a href="/dosen/add" class="btn btn-sm btn-success">
+              Tambah Dosen
+            </a>
+          </div>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -43,11 +48,10 @@
               <td>{{tahun_masuk}}</td>
               <td>{{sex}}</td>
               <td>
-                <a href="/dosen/edit/{{nidn}}" class='btn btn-info'>Edit</a>
-              </td>
-              <td>
+                <a href="/dosen/edit/{{nidn}}" class='btn btn-info'><i class="fa fa-pencil"></i></a>
+              
                 <form action="dosen/delete/{{id}}?_method=DELETE" method="POST">
-                  <input type="submit" class="btn btn-danger" value="Delete">
+                  <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> </button>
                 </form>
               </td>
             </tr>

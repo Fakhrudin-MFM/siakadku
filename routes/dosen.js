@@ -27,7 +27,7 @@ router.get('/add', function(req, res, next) {
   		.then(function(pd){
   			pend = pd;
   		});  		
-  	User.findAll({where:{idUserGroup:2}})
+  	User.findAll({where:{hakakses:'Dosen'}})
   		.then(function(user){
   			res.render('dosen/add',{
   				ps:ps,
@@ -52,26 +52,26 @@ router.get('/edit/:nidn', function(req, res, next){
   		.then(function(prodi){
   			ps = prodi;
   		});
-  	User.findAll({where:{idUserGroup:2}})
+  	User.findAll({where:{hakakses:'Dosen'}})
 		.then(function(users){
 			user = users;
 		});
   	Pendidikan.findAll()
 		.then(function(pd){
-			pendidikan = pd;
+			pendidikans = pd;
 		});		
   	Dosen.findOne({where:{nidn:req.params.nidn}})
   		.then(function(ds){
   			res.render('dosen/edit', {
   				dosen:ds,
   				ps:ps,
-  				pendidikan:pendidikan,
+  				pendidikan:pendidikans,
   				user:user
   			})
   		}) 		
 		.catch(function(err){
 			res.redirect('/error');
-			console.log(err)
+			console.log(err+'ini error')
 		})
 });
 router.put('/edit/:nidn', function(req, res, next){

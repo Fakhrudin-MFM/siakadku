@@ -38,7 +38,7 @@ router.get('/add', function(req, res, next) {
   		.then(function(ds){
   			dosen = ds;
   		});
-  	User.findAll({where:{idUserGroup:1}})
+  	User.findAll({where:{hakakses:'Mahasiswa'}})
   		.then(function(user){
   			users = user;
   		});
