@@ -87,13 +87,13 @@ router.get('/edit/:id', function(req, res, next){
   				jm:jm,
   				ps:ps,
   				dosen:dosen,
-  				user:users
+  			//	user:users
 			});
 			//console.log(dosen)
 		})
 		.catch(function(err){
 			res.redirect('/error');
-			console.log(err)
+			console.log('ini error bro'+err)
 		})
 });
 

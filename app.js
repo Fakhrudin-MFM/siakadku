@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
 // For Passport
  
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(session({ secret: 'bismillah',resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize()); 
 app.use(passport.session()); // persistent login sessions
 
@@ -59,7 +59,7 @@ app.use('/nilai', nilai);
 //app.use('/', auth);
 
 var models = require("./models");
-require('./config/passport/passport.js')(passport, models.user);
+require('./config/passport/passport.js')(passport, models.User);
 
 var authRoute = require('./routes/auth');
 

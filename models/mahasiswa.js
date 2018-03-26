@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
       onDelete : 'CASCADE',
     });
     
-    Mahasiswa.belongsTo(models.user, {
+    Mahasiswa.belongsTo(models.User, {
       foreignKey: 'idUser',
       onDelete : 'CASCADE',
     });

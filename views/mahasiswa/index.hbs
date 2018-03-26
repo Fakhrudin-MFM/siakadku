@@ -14,71 +14,82 @@
       <div class="box">
         <div class="box-header">
           <h3 class="box-title">Data Mahasiswa</h3>
+          <div class="box-tools ">
+            <a href="/mahasiswa/add" class="btn btn-sm btn-success">
+              Tambah Mahasiswa
+            </a>
+          </div>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <table id="example1" class="table table-bordered table-striped">
-            <thead>
-            <tr>
-              <th>NPM</th>
-              <th>Nama</th>
-              <th>Tempat Lahir</th>
-              <th>Tanggal Lahir</th>
-              <th>Jenis Kelamin</th>
-              <th>Tahun Masuk</th>
-              <th>Jalur Masuk</th>
-              <th>Program Studi</th>
-              <th>Dosen Pembimbing</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            {{#each mahasiswa}}
-            <tr>
-              <td>{{npm}}</td>
-              <td>{{nama}}</td>
-              <td>{{tempat_lahir}}</td>
-              <td>{{tanggal_lahir}}</td>
-              <td>{{sex}}</td>
-              <td>{{tahun_masuk}}</td>
-              <td>{{JalurMasuk.nama_jalurmasuk}}</td>
-              <td>{{ProgramStudi.nama_prodi}}</td>
-              <td>{{Dosen.nama}}</td>
-              <td>
-                <a href="/mahasiswa/edit/{{id}}" class='btn btn-info'>Edit</a>
-              </td>
-              <td>
-                <form action="mahasiswa/delete/{{id}}?_method=DELETE" method="POST">
-                  <input type="submit" class="btn btn-danger" value="Delete">
-                </form>
-              </td>
-            </tr>
-            {{/each}} 
-            </tbody>
-            <tfoot>
-            <tr>
-              <th>NPM</th>
-              <th>Nama</th>
-              <th>Tempat Lahir</th>
-              <th>Tanggal Lahir</th>
-              <th>Jenis Kelamin</th>
-              <th>Tahun Masuk</th>
-              <th>Jalur Masuk</th>
-              <th>Program Studi</th>
-              <th>Dosen Pembimbing</th>
-            </tr>
-            </tfoot>
-          </table>
+          <div class="table-responsive">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>NPM</th>
+                <th>Nama</th>
+                <th>Tempat Lahir</th>
+                <th>Tanggal Lahir</th>
+                <th>Sex</th>
+                <th>Tahun Masuk</th>
+                <th>Jalur Masuk</th>
+                <th>Program Studi</th>
+                <th>Dosen PA</th>
+                <th>Aksi</th>                
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+              </tr>
+              {{#each mahasiswa}}
+              <tr>
+                <td>{{npm}}</td>
+                <td>{{nama}}</td>
+                <td>{{tempat_lahir}}</td>
+                <td>{{tanggal_lahir}}</td>
+                <td>{{sex}}</td>
+                <td>{{tahun_masuk}}</td>
+                <td>{{JalurMasuk.nama_jalurmasuk}}</td>
+                <td>{{ProgramStudi.nama_prodi}}</td>
+                <td>{{Dosen.nama}}</td>
+                <td>
+                  <a href="/mahasiswa/edit/{{id}}" class='btn btn-info'>
+                    <i class="fa fa-pencil"></i>
+                  </a>                  
+                  <form action="mahasiswa/delete/{{id}}?_method=DELETE" method="POST">
+                    <button type="submit" class="btn btn-danger">
+                      <i class="fa fa-trash"></i></button>
+                  </form>
+                </td>
+              </tr>
+              {{/each}} 
+              </tbody>
+              <tfoot>
+              <tr>
+                <th>NPM</th>
+                <th>Nama</th>
+                <th>Tempat Lahir</th>
+                <th>Tanggal Lahir</th>
+                <th>Jenis Kelamin</th>
+                <th>Tahun Masuk</th>
+                <th>Jalur Masuk</th>
+                <th>Program Studi</th>
+                <th>Dosen Pembimbing</th>
+              </tr>
+              </tfoot>
+            </table>
+          </div>  
         </div>
         <!-- /.box-body -->
       </div>

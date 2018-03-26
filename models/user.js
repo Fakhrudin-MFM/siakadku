@@ -1,7 +1,7 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
  
-    var User = sequelize.define('user', {
+    var User = sequelize.define('User', {
  
         id: {
             autoIncrement: true,
@@ -43,9 +43,9 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.DATE
         },
  
-        status: {
-            type: DataTypes.ENUM('active', 'inactive'),
-            defaultValue: 'active'
+        hakakses: {
+            type: DataTypes.ENUM('Mahasiswa', 'Dosen','Admin'),
+            defaultValue: 'Mahasiswa'
         }
  
  
