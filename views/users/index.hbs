@@ -45,9 +45,13 @@
               <td>{{email}}</td>
               <td>{{idUserGroup}}</td>
               <td>
-                <a href="/users/detail/{{id}}" class='btn btn-info fa fa-eye'></a>              
+                <a href="/users/edit/{{id}}" class='btn btn-info'>
+                  <i class="fa fa-pencil"></i>
+                </a> 
+                                 
                 <form style="display:inline" action="users/delete/{{id}}?_method=DELETE" method="POST">
-                  <button type="submit"class="btn btn-danger fa fa-trash"> </button>
+                  <button type="submit" class="btn btn-danger">
+                    <i class="fa fa-trash"></i></button>
                 </form>
               </td>
             </tr>
