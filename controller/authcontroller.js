@@ -19,13 +19,13 @@ module.exports = {
 	signup : function(req, res, next){
 		res.render('signup');
 	},
-	signin : function(req, res) {
+	signin : function(req, res, next) {
     	res.render('signin');
 	},
-	dashboard : function(req, res) {
+	dashboard : function(req, res, next) {
 	    res.render('dashboard');
 	},
-	logout : function(req, res) {
+	logout : function(req, res, next) {
 	    req.session.destroy(function(err) {
 	        res.redirect('/');
 	    });
