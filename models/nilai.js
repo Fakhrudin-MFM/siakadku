@@ -10,10 +10,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey:'idMahasiswa',
         onDelete : 'CASCADE',     
     });
-    Nilai.belongsTo(models.Dosen,{
-      foreignKey:'idDosen',
-        onDelete : 'CASCADE',     
-    });
     Nilai.belongsTo(models.MataKuliah,{
       foreignKey:'idMataKuliah',
         onDelete : 'CASCADE',

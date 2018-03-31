@@ -11,7 +11,9 @@ var session = require('express-session');
 var env = require('dotenv').load();
 var app = express();
 
+
 var index = require('./routes/index');
+var dashboard = require('./routes/dashboard');
 var users = require('./routes/users');
 var mahasiswa = require('./routes/mahasiswa');
 var dosen = require('./routes/dosen');
@@ -46,8 +48,8 @@ app.use(session({ secret: 'bismillah',resave: true, saveUninitialized:true})); /
 app.use(passport.initialize()); 
 app.use(passport.session()); // persistent login sessions
 
-
 app.use('/', index);
+app.use('/dashboard', dashboard);
 app.use('/users', users);
 app.use('/mahasiswa', mahasiswa);
 app.use('/dosen', dosen);

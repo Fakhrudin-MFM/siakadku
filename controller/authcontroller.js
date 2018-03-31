@@ -17,10 +17,10 @@
 
 module.exports = {
 	signup : function(req, res, next){
-		res.render('signup');
+		res.render('signup',{layout: false});
 	},
 	signin : function(req, res, next) {
-    	res.render('signin');
+    	res.render('signin',{layout: false});
 	},
 	dashboard : function(req, res, next) {
 	    res.render('dashboard');
